@@ -10,48 +10,25 @@ package com.mycompany.myapp.entities;
  * @author Ajengui
  */
 public class UserSession {
-    
-    private static UserSession instance;
-    
-    private int id;
-    private String username;
-    private String email;
-    
-    
-    private UserSession(int id, String email){
-        this.id=id;
-      
-        this.email=email;
+     private static User user=null;
+
+    public static void start(User currentUser) {
+        user = currentUser;
     }
-    
-    public static UserSession setInstance(int id,String email){
-        if (instance==null) {
-            instance= new UserSession(id, email);
+
+    public static User getCurrentSession() {
+        if (user != null) {
+            return user;
         }
-        return instance;
-    }
-    
-    
-    public static UserSession getInstance(){
-        return instance;
-    }
-    
-    public static void destroySession(){
-        instance=null;
-    }
+        return null;
 
-    public int getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
     }
     
-    
-    
+        public static void close() throws Exception {
+        if (user != null) {
+            user =null;
+        } else {
+            throw new Exception("Session has not started yet!");
+        }
+    }
 }

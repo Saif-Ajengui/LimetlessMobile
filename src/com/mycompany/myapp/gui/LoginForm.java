@@ -35,6 +35,8 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.entities.User;
+import com.mycompany.myapp.entities.UserSession;
 import com.mycompany.myapp.services.UserService;
 
 /**
@@ -43,6 +45,7 @@ import com.mycompany.myapp.services.UserService;
  * @author Shai Almog
  */
 public class LoginForm extends Form {
+    private static User user;
     public LoginForm(Resources theme) {
         super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
         setUIID("LoginForm");
@@ -73,8 +76,9 @@ public class LoginForm extends Form {
         Button loginButton = new Button("LOGIN");
         loginButton.setUIID("LoginButton");
         loginButton.addActionListener(e->{
-                UserService.getInstance().Login(login, password, theme);
-               
+            
+               user =  UserService.getInstance().Login(login, password, theme);
+               UserSession.start(user);
           
         });
         

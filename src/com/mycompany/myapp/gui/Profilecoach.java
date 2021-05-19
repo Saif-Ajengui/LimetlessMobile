@@ -22,12 +22,15 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.entities.User;
+import com.mycompany.myapp.entities.UserSession;
 
 /**
  *
  * @author ghassen
  */
 public class Profilecoach extends sidemenucoach{
+    User user=UserSession.getCurrentSession();
     public Profilecoach(Resources res) {
         super(BoxLayout.y());
         Toolbar tb = getToolbar();

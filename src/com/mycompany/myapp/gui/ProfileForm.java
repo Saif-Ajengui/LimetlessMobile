@@ -35,6 +35,8 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.entities.User;
+import com.mycompany.myapp.entities.UserSession;
 
 /**
  * Represents a user profile in the app, the first form we open after the walkthru
@@ -42,6 +44,7 @@ import com.codename1.ui.util.Resources;
  * @author Shai Almog
  */
 public class ProfileForm extends SideMenuBaseForm {
+    User user=UserSession.getCurrentSession();
     public ProfileForm(Resources res) {
         super(BoxLayout.y());
         Toolbar tb = getToolbar();

@@ -28,6 +28,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.Layout;
 import com.codename1.ui.util.Resources;
+import com.mycompany.myapp.entities.UserSession;
 
 /**
  * Common code that can setup the side menu
@@ -69,7 +70,15 @@ public abstract class SideMenuBaseForm extends Form {
         getToolbar().addMaterialCommandToSideMenu("  Reclamation", FontImage.MATERIAL_ACCESS_TIME,  e -> new StatsForm(res).show());
         getToolbar().addMaterialCommandToSideMenu("  Coach", FontImage.MATERIAL_ACCESS_TIME,  e -> new StatsForm(res).show());
         getToolbar().addMaterialCommandToSideMenu("  Account Settings", FontImage.MATERIAL_SETTINGS,  e -> showOtherForm(res));
-        getToolbar().addMaterialCommandToSideMenu("  Logout", FontImage.MATERIAL_EXIT_TO_APP,  e -> new LoginForm(res).show());
+        getToolbar().addMaterialCommandToSideMenu("  Logout", FontImage.MATERIAL_EXIT_TO_APP,  e -> {
+           try {
+                UserSession.close();
+            } catch (Exception ex) {
+                ex.getMessage();
+            }
+            new LoginForm(res).show();
+            
+                });
     }
     
     protected abstract void showOtherForm(Resources res);

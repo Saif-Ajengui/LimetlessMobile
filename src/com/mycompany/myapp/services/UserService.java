@@ -92,7 +92,7 @@ public class UserService {
     }
      
     
-    public void Login(TextField login, TextField password,Resources res) {
+    public User Login(TextField login, TextField password,Resources res) {
         String url = BASE_URL + "/service/login?login="+login.getText()+"&password="+password.getText();
         req.setUrl(url);
         req.addResponseListener(e->{
@@ -123,6 +123,7 @@ public class UserService {
             
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
+        return null;
         }
         
     
