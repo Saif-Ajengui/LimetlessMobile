@@ -75,10 +75,20 @@ public class LoginForm extends Form {
         
         Button loginButton = new Button("LOGIN");
         loginButton.setUIID("LoginButton");
+        Button logingoogle = new Button("LOGIN AVEC GOOGLE");
+        logingoogle.setUIID("LoginButton");
         loginButton.addActionListener(e->{
             
                user =  UserService.getInstance().Login(login, password, theme);
                UserSession.start(user);
+               
+          
+        });
+        logingoogle.addActionListener(e->{
+            
+               user =  UserService.getInstance().LoginGoogle(theme);
+               UserSession.start(user);
+               
           
         });
         
@@ -106,6 +116,7 @@ public class LoginForm extends Form {
                 BorderLayout.center(password).
                         add(BorderLayout.WEST, passwordIcon),
                 loginButton,
+                logingoogle,
                 createNewAccount,
                 oublier
         );

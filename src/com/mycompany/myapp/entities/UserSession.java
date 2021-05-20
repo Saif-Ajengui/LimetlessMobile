@@ -11,7 +11,8 @@ package com.mycompany.myapp.entities;
  */
 public class UserSession {
      private static User user=null;
-
+   
+    
     public static void start(User currentUser) {
         user = currentUser;
     }

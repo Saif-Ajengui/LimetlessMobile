@@ -37,6 +37,8 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.entities.User;
 import com.mycompany.myapp.entities.UserSession;
+import com.mycompany.myapp.services.UserService;
+import java.util.ArrayList;
 
 /**
  * Represents a user profile in the app, the first form we open after the walkthru
@@ -70,12 +72,12 @@ public class ProfileForm extends SideMenuBaseForm {
                         new Label("completed tasks", "CenterSubTitle")
         );
         completedTasks.setUIID("CompletedTasks");
-
+        
         Container titleCmp = BoxLayout.encloseY(
                         FlowLayout.encloseIn(menuButton),
                         BorderLayout.centerAbsolute(
                                 BoxLayout.encloseY(
-                                    new Label("Jennifer Wilson", "Title"),
+                                    new Label("saif", "Title"),
                                     new Label("UI/UX Designer", "SubTitle")
                                 )
                             ).add(BorderLayout.WEST, profilePicLabel),

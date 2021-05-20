@@ -27,7 +27,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String nom, String prenom, String email, String login, String password,String image, String sexe, String Date_naiss, String type,boolean isvalider) {
+    public User(int id, String nom, String prenom, String email, String login, String password,String image, String sexe, String Date_naiss, String type) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -38,9 +38,8 @@ public class User {
         this.sexe = sexe;
         this.Date_naiss = Date_naiss;
         this.type = type;
-        this.isvalider = isvalider;
     }
-       public User( String nom, String prenom, String email, String login, String password,String image, String sexe, String Date_naiss, String type,boolean isvalider) {
+       public User( String nom, String prenom, String email, String login, String password,String image, String sexe, String Date_naiss, String type) {
         
         this.nom = nom;
         this.prenom = prenom;
@@ -51,7 +50,6 @@ public class User {
         this.sexe = sexe;
         this.Date_naiss = Date_naiss;
         this.type = type;
-        this.isvalider = isvalider;
     }
  
 
